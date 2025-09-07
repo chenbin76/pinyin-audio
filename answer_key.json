@@ -1,0 +1,32 @@
+{
+  "website_title": "Chinese Pinyin Practice Test",
+  "questions": [
+    {
+      "question_number": 1,
+      "word": "今天",
+      "complete_pinyin": "jin tian",
+      "blanked_pinyin": "jin t_",
+      "answer": "ian",
+      "question_type": "final",
+      "pinyin_with_tones": "jīn tiān"
+    },
+    {
+      "question_number": 2,
+      "word": "夏天",
+      "complete_pinyin": "xia tian",
+      "blanked_pinyin": "x_ tian",
+      "answer": "ia",
+      "question_type": "final",
+      "pinyin_with_tones": "xià tiān"
+    },
+    {
+      "question_number": 3,
+      "word": "旅行",
+      "complete_pinyin": "lv xing",
+      "blanked_pinyin": "l_ xing",
+      "answer": "v",
+      "question_type": "final",
+      "pinyin_with_tones": "lǚ xíng"
+    }
+  ]
+}

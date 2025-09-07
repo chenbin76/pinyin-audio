@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Pinyin Practice Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .description {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .question {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .question-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .chinese-word {
+            font-size: 36px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .pinyin-display {
+            font-size: 24px;
+            color: #3498db;
+            font-family: monospace;
+            margin: 15px 0;
+        }
+        .audio-player {
+            margin: 15px 0;
+            text-align: center;
+        }
+        audio {
+            width: 200px;
+            height: 30px;
+        }
+        .input-section {
+            margin: 15px 0;
+        }
+        .answer-input {
+            font-size: 18px;
+            padding: 8px 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            width: 150px;
+        }
+        .answer-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .hint {
+            color: #95a5a6;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+        }
+        .submit-btn:hover {
+            background: #219a52;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .score-display {
+            background: #e3f2fd;
+            color: #1565c0;
+            border: 1px solid #bbdefb;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .reset-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .reset-btn:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏮 Chinese Pinyin Practice Test 🏮</h1>
+        <p class="description">Complete the missing pinyin syllables. Click ▶️ to hear pronunciation.</p>
+        
+        <form id="pinyinForm">
+
+            <div class="question" id="question1">
+                <div class="question-title">Question 1</div>
+                <div class="chinese-word">今天</div>
+                <div class="pinyin-display">jin t_</div>
+                
+                <div class="audio-player">
+                    🔊 <audio controls>
+                        <source src="audio/今天.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
+                <div class="input-section">
+                    Fill in the missing part: 
+                    <input type="text" 
+                           class="answer-input" 
+                           id="answer1" 
+                           name="answer1"
+                           data-correct="ian"
+                           placeholder="Enter missing syllable"
+                           autocomplete="off">
+                </div>
+                
+                <div class="hint">
+                    💡 Hint: Complete pinyin with tones is "jīn tiān"
+                </div>
+                
+                <div class="result" id="result1" style="display: none;"></div>
+            </div>
+
+            <div class="question" id="question2">
+                <div class="question-title">Question 2</div>
+                <div class="chinese-word">夏天</div>
+                <div class="pinyin-display">x_ tian</div>
+                
+                <div class="audio-player">
+                    🔊 <audio controls>
+                        <source src="audio/夏天.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
+                <div class="input-section">
+                    Fill in the missing part: 
+                    <input type="text" 
+                           class="answer-input" 
+                           id="answer2" 
+                           name="answer2"
+                           data-correct="ia"
+                           placeholder="Enter missing syllable"
+                           autocomplete="off">
+                </div>
+                
+                <div class="hint">
+                    💡 Hint: Complete pinyin with tones is "xià tiān"
+                </div>
+                
+                <div class="result" id="result2" style="display: none;"></div>
+            </div>
+
+            <div class="question" id="question3">
+                <div class="question-title">Question 3</div>
+                <div class="chinese-word">旅行</div>
+                <div class="pinyin-display">l_ xing</div>
+                
+                <div class="audio-player">
+                    🔊 <audio controls>
+                        <source src="audio/旅行.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
+                <div class="input-section">
+                    Fill in the missing part: 
+                    <input type="text" 
+                           class="answer-input" 
+                           id="answer3" 
+                           name="answer3"
+                           data-correct="v"
+                           placeholder="Enter missing syllable"
+                           autocomplete="off">
+                </div>
+                
+                <div class="hint">
+                    💡 Hint: Complete pinyin with tones is "lǚ xíng"
+                </div>
+                
+                <div class="result" id="result3" style="display: none;"></div>
+            </div>
+
+        </form>
+        
+        <button type="button" class="submit-btn" onclick="checkAnswers()">
+            ✅ Check My Answers
+        </button>
+        
+        <button type="button" class="reset-btn" onclick="resetQuiz()" style="display: none;" id="resetBtn">
+            🔄 Try Again
+        </button>
+        
+        <div class="score-display" id="scoreDisplay" style="display: none;"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let totalQuestions = 0;
+            let correctAnswers = 0;
+            
+            // Check each question
+            for (let i = 1; i <= 3; i++) {
+                const input = document.getElementById('answer' + i);
+                const result = document.getElementById('result' + i);
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswer = input.dataset.correct.toLowerCase();
+                
+                totalQuestions++;
+                
+                if (userAnswer === correctAnswer) {
+                    result.className = 'result correct';
+                    result.innerHTML = '✅ Correct! Answer: ' + correctAnswer;
+                    correctAnswers++;
+                } else {
+                    result.className = 'result incorrect';
+                    result.innerHTML = '❌ Incorrect. Correct answer: ' + correctAnswer + ' (You wrote: ' + userAnswer + ')';
+                }
+                
+                result.style.display = 'block';
+                input.disabled = true;
+            }
+            
+            // Show score
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+            let message = '';
+            
+            if (percentage === 100) {
+                message = '🎉 Perfect! You got all ' + correctAnswers + ' questions correct!';
+            } else if (percentage >= 80) {
+                message = '👏 Great job! You got ' + correctAnswers + ' out of ' + totalQuestions + ' correct (' + percentage + '%)';
+            } else if (percentage >= 60) {
+                message = '👍 Good effort! You got ' + correctAnswers + ' out of ' + totalQuestions + ' correct (' + percentage + '%)';
+            } else {
+                message = '💪 Keep practicing! You got ' + correctAnswers + ' out of ' + totalQuestions + ' correct (' + percentage + '%)';
+            }
+            
+            scoreDisplay.innerHTML = message;
+            scoreDisplay.style.display = 'block';
+            
+            // Hide submit button, show reset button
+            document.querySelector('.submit-btn').style.display = 'none';
+            document.getElementById('resetBtn').style.display = 'inline-block';
+        }
+        
+        function resetQuiz() {
+            // Clear all inputs and results
+            for (let i = 1; i <= 3; i++) {
+                const input = document.getElementById('answer' + i);
+                const result = document.getElementById('result' + i);
+                
+                input.value = '';
+                input.disabled = false;
+                result.style.display = 'none';
+            }
+            
+            // Hide score and reset button, show submit button
+            document.getElementById('scoreDisplay').style.display = 'none';
+            document.getElementById('resetBtn').style.display = 'none';
+            document.querySelector('.submit-btn').style.display = 'block';
+        }
+        
+        // Add Enter key support
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                checkAnswers();
+            }
+        });
+    </script>
+</body>
+</html>
